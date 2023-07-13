@@ -101,13 +101,15 @@ mycursor.execute(selquery)
 result = mycursor.fetchall()
 
 if passwd == result[0][1]:
-    print("Login Successful")
+    str1 = "Login Successful"
+    client.send(bytes(str2 , ("utf-8")))
     p1 = client.recv(1024)
     p1 = p1.decode("utf-8")
     Addfile(uname , p1)
 
 else:
-    print("Login Unsuccessful")
+    str2 = "Login Unsuccessful"
+    client.send(bytes(str1 , ("utf-8")))
 
 in1 = client.recv(1024)
 in1 = in1.decode("utf-8")
