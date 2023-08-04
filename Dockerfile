@@ -1,5 +1,7 @@
-FROM python:3.0
+FROM python:3.8
 
 RUN pip install mysql-connector-python
 
-COPY ./Database.py /usr/app/src/Database.py
+COPY ./server /usr/app/src/python
+
+CMD ["python3","./Database.py"]
