@@ -5,7 +5,7 @@ services:
       MYSQL_DATABASE: "studentDetails"
       MYSQL_ROOT_PASSWORD: "admin@123"
     ports:
-      - '8080:8080'
+      - '1234:1234'
 
   pythonapp:
     build: ./server/
