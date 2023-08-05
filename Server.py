@@ -1,5 +1,4 @@
 import socket
-import sys
 
 from zipfile import ZipFile
 
@@ -42,23 +41,18 @@ def Extractfile(uname , path):
     for row in result:
         i = i+1
         fl = open("{i}.txt" , "wb")
-        fl.write(row[1])
-        fl.close()
+        fl.write(row[i][1])
 
         file = ZipFile('New1.zip' , 'w')
         file.write("{i}.txt")
         file.close()
+        fl.close()
 
     uf = ZipFile('New1.zip' , 'r')
     uf.extractall(path)
 
     uf.close()
     
-
-
-
-
-
 
 
 server = socket.socket(socket.AF_INET , socket.SOCK_STREAM)
@@ -102,15 +96,13 @@ mycursor.execute(selquery)
 result = mycursor.fetchall()
 
 if passwd == result[0][1]:
-    str1 = "Login Successful"
-    client.send(bytes(str2 , ("utf-8")))
+    print("Login Successful")
     p1 = client.recv(1024)
     p1 = p1.decode("utf-8")
     Addfile(uname , p1)
 
 else:
-    str2 = "Login Unsuccessful"
-    client.send(bytes(str1 , ("utf-8")))
+    print("Login Unsuccessful")
 
 in1 = client.recv(1024)
 in1 = in1.decode("utf-8")
