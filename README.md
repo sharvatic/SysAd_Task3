@@ -1,8 +1,8 @@
 Run the following commands as root user to get the following files
 ```
 cd /
-mkdir server
-cd server
+mkdir python
+cd python
 git clone https://github.com/sharvatic/SysAd_Task3.git
 ```
 Download the python extension in VScode. Install MySQL and install the mysql connector using
